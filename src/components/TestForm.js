@@ -131,7 +131,7 @@ export default function TestForm(props) {
       <div className={`container my-0 text-${props.mode ==="light" ? "dark" : "light"}`}>
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").length} words and ${text.length} characters
+          {text.split(" ").filter((Element)=>{return Element.length!==0}).length} words and {text.length} characters
           
         </p>
         <p>Time to read : {0.8 * text.split(" ").length} minutes</p>
