@@ -61,6 +61,8 @@ export default function TestForm(props) {
 
           {/* ---------------------------------------------buttons start here --------------------------- */}
           <button
+                    disabled={text.length===0}
+
             type="button"
             onClick={clickupchange}
             className="btn btn-primary my-2 mx-2"
@@ -68,6 +70,8 @@ export default function TestForm(props) {
             Convert to Uppercase
           </button>
           <button
+                    disabled={text.length===0}
+
             type="button"
             onClick={clicklochange}
             className="btn btn-primary my-2 mx-2"
@@ -75,6 +79,8 @@ export default function TestForm(props) {
             Convert to Lowercase
           </button>
           <button
+                    disabled={text.length===0}
+
             type="button"
             onClick={clear}
             className="btn btn-primary my-2 mx-2 "
@@ -83,6 +89,7 @@ export default function TestForm(props) {
           </button>
 
           <button
+          disabled={text.length===0}
             type="button"
             value={text}
             onClick={copy}
@@ -131,10 +138,10 @@ export default function TestForm(props) {
       <div className={`container my-0 text-${props.mode ==="light" ? "dark" : "light"}`}>
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").filter((Element)=>{return Element.length!==0}).length} words and {text.length} characters
+          {text.split(/\s+/).filter((Element)=>{return Element.length!==0}).length} words and {text.length} characters
           
         </p>
-        <p>Time to read : {0.8 * text.split(" ").length} minutes</p>
+        <p>Time to read : {0.8 * text.split(/\s+/).filter((Element)=>{return Element.length!==0}).length} minutes</p>
 
         <h2>Preview</h2>
         <p>{text.length>0 ? text : "enter your text on textbox to preview"}</p>
